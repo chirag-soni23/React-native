@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import studentData from '@/studentData.json';
-import { Ionicons } from '@expo/vector-icons'; // Add Ionicons for better visuals
 
 interface Student {
   id: number;
@@ -19,9 +18,9 @@ interface StudentData {
 }
 
 export default function TabTwoScreen() {
-  const [selectedClass, setSelectedClass] = useState<string | null>(null);
+  const [selectedClass, setSelectedClass] = useState<keyof StudentData | null>(null);
 
-  const handleCardPress = (classKey: string) => {
+  const handleCardPress = (classKey: keyof StudentData) => {
     setSelectedClass(classKey);
   };
 
@@ -40,7 +39,7 @@ export default function TabTwoScreen() {
             <TouchableOpacity
               key={classKey}
               style={styles.card}
-              onPress={() => handleCardPress(classKey)}
+              onPress={() => handleCardPress(classKey as keyof StudentData)}
             >
               <Text style={styles.cardTitle}>{classKey.toUpperCase()}</Text>
             </TouchableOpacity>
@@ -52,18 +51,17 @@ export default function TabTwoScreen() {
       {selectedClass && (
         <View style={styles.detailsContainer}>
           <TouchableOpacity onPress={handleBackPress} style={styles.backButton}>
-            <Ionicons name="arrow-back" size={24} color="#333" />
             <Text style={styles.backText}>Back</Text>
           </TouchableOpacity>
           <Text style={styles.detailsTitle}>{selectedClass.toUpperCase()} Students</Text>
           <ScrollView style={styles.scrollView}>
             {data[selectedClass]?.map((student: Student) => (
               <View key={student.id} style={styles.studentCard}>
-                <Text style={styles.studentText}>ID: {student.id}</Text>
-                <Text style={styles.studentText}>Name: {student.name}</Text>
-                <Text style={styles.studentText}>Roll No: {student.rollNo}</Text>
-                <Text style={styles.studentText}>Parent Name: {student.parentName}</Text>
-                <Text style={styles.studentText}>Parent's Mobile: {student.parentMobile}</Text>
+                <Text style={styles.studentInfo}>ID: {student.id}</Text>
+                <Text style={styles.studentInfo}>Name: {student.name}</Text>
+                <Text style={styles.studentInfo}>Roll No: {student.rollNo}</Text>
+                <Text style={styles.studentInfo}>Parent Name: {student.parentName}</Text>
+                <Text style={styles.studentInfo}>Parent's Mobile: {student.parentMobile}</Text>
               </View>
             ))}
           </ScrollView>
@@ -76,82 +74,80 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#f4f7fc',
     padding: 20,
-    backgroundColor: '#f5f5f5', // Lighter background for the whole screen
   },
   cardContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 20,
-    flexWrap: 'wrap',
   },
   card: {
-    backgroundColor: '#4c69f5', 
-    padding: 20,
+    backgroundColor: '#6200ea',
+    paddingVertical: 20,
+    paddingHorizontal: 30,
     borderRadius: 12,
-    width: '48%',
-    marginBottom: 20,
+    width: '22%',
     alignItems: 'center',
     justifyContent: 'center',
-    elevation: 10, 
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 8,
   },
   cardTitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
-    color: '#fff', 
+    color: '#fff',
+    textTransform: 'uppercase',
   },
   detailsContainer: {
     marginTop: 20,
-    padding: 20,
-    backgroundColor: '#ffffff', 
+    padding: 25,
+    backgroundColor: '#fff',
     borderRadius: 12,
-    elevation: 5,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,
     shadowRadius: 8,
+    elevation: 8,
   },
   detailsTitle: {
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 15,
     color: '#333',
   },
   scrollView: {
     maxHeight: 400,
-    marginTop: 10,
   },
   studentCard: {
     marginBottom: 20,
     padding: 15,
-    backgroundColor: '#f8f8f8',
-    borderRadius: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
+    backgroundColor: '#f1f1f1',
+    borderRadius: 10,
+    shadowColor: '#ccc',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+    elevation: 5,
   },
-  studentText: {
+  studentInfo: {
     fontSize: 16,
     color: '#333',
-    marginBottom: 5,
+    marginBottom: 8,
   },
   backButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 20,
-    backgroundColor: '#ddd',
-    padding: 10,
-    borderRadius: 5,
+    marginBottom: 15,
+    backgroundColor: '#ff4081',
+    paddingVertical: 12,
+    borderRadius: 8,
   },
   backText: {
     fontSize: 18,
-    color: '#333',
+    color: '#fff',
     textAlign: 'center',
-    marginLeft: 10,
+    fontWeight: 'bold',
   },
 });
