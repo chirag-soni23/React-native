@@ -1,5 +1,7 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
+import { FaClipboardUser } from "react-icons/fa6";
+import { FaRegListAlt } from "react-icons/fa";
 import { Platform } from 'react-native';
 
 import { HapticTab } from '@/components/HapticTab';
@@ -30,14 +32,14 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Attendance',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color }) => <FaClipboardUser size={24} color='white'/>,
         }}
       />
       <Tabs.Screen
         name="Attendance"
         options={{
           title: 'Marks',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ color }) => <FaRegListAlt size={24} color='white'/>,
         }}
       />
     </Tabs>
