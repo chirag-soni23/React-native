@@ -24,27 +24,35 @@ export default function TabTwoScreen() {
     setSelectedClass(classKey);
   };
 
+  const handleBackPress = () => {
+    setSelectedClass(null);
+  };
 
   const data = studentData as StudentData;
 
   return (
     <View style={styles.container}>
-      {/* Class Cards */}
-      <View style={styles.cardContainer}>
-        {['class9', 'class10', 'class11', 'class12'].map((classKey) => (
-          <TouchableOpacity
-            key={classKey}
-            style={styles.card}
-            onPress={() => handleCardPress(classKey)}
-          >
-            <Text style={styles.cardTitle}>{classKey.toUpperCase()}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
+      {/* Show Class Cards if no class is selected */}
+      {!selectedClass && (
+        <View style={styles.cardContainer}>
+          {['class9', 'class10', 'class11', 'class12'].map((classKey) => (
+            <TouchableOpacity
+              key={classKey}
+              style={styles.card}
+              onPress={() => handleCardPress(classKey)}
+            >
+              <Text style={styles.cardTitle}>{classKey.toUpperCase()}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      )}
 
-      {/* Student Details */}
+      {/* Show Student Details for selected class */}
       {selectedClass && (
         <View style={styles.detailsContainer}>
+          <TouchableOpacity onPress={handleBackPress} style={styles.backButton}>
+            <Text style={styles.backText}>Back</Text>
+          </TouchableOpacity>
           <Text style={styles.detailsTitle}>{selectedClass.toUpperCase()} Students</Text>
           <ScrollView style={styles.scrollView}>
             {data[selectedClass]?.map((student: Student) => (
@@ -113,5 +121,16 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: '#f8f8f8',
     borderRadius: 8,
+  },
+  backButton: {
+    marginBottom: 10,
+    backgroundColor: '#ddd',
+    padding: 10,
+    borderRadius: 5,
+  },
+  backText: {
+    fontSize: 18,
+    color: '#333',
+    textAlign: 'center',
   },
 });
