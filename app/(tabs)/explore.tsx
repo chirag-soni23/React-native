@@ -32,7 +32,6 @@ export default function TabTwoScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Show Class Cards if no class is selected */}
       {!selectedClass && (
         <View style={styles.cardContainer}>
           {['class9', 'class10', 'class11', 'class12'].map((classKey) => (
@@ -47,7 +46,6 @@ export default function TabTwoScreen() {
         </View>
       )}
 
-      {/* Show Student Details for selected class */}
       {selectedClass && (
         <View style={styles.detailsContainer}>
           <TouchableOpacity onPress={handleBackPress} style={styles.backButton}>
