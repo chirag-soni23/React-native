@@ -1,0 +1,569 @@
+{
+    "class9": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "rollNo": "9A123",
+        "parentName": "Jane Doe",
+        "parentMobile": "1234567890",
+        "marks": {
+          "Math": 85,
+          "English": 90,
+          "Science": 88,
+          "History": 76,
+          "Geography": 80
+        }
+      },
+      {
+        "id": 2,
+        "name": "Jane Doe",
+        "rollNo": "9A124",
+        "parentName": "Mr. Doe",
+        "parentMobile": "0987654321",
+        "marks": {
+          "Math": 78,
+          "English": 80,
+          "Science": 85,
+          "History": 72,
+          "Geography": 79
+        }
+      },
+      {
+        "id": 3,
+        "name": "Sam Smith",
+        "rollNo": "9A125",
+        "parentName": "Mr. Smith",
+        "parentMobile": "1122334455",
+        "marks": {
+          "Math": 92,
+          "English": 88,
+          "Science": 89,
+          "History": 81,
+          "Geography": 90
+        }
+      },
+      {
+        "id": 4,
+        "name": "Emma White",
+        "rollNo": "9A126",
+        "parentName": "Mrs. White",
+        "parentMobile": "5566778899",
+        "marks": {
+          "Math": 76,
+          "English": 85,
+          "Science": 80,
+          "History": 75,
+          "Geography": 84
+        }
+      },
+      {
+        "id": 5,
+        "name": "Liam Brown",
+        "rollNo": "9A127",
+        "parentName": "Mr. Brown",
+        "parentMobile": "6677889900",
+        "marks": {
+          "Math": 90,
+          "English": 78,
+          "Science": 92,
+          "History": 88,
+          "Geography": 80
+        }
+      },
+      {
+        "id": 6,
+        "name": "Sophia Lee",
+        "rollNo": "9A128",
+        "parentName": "Mrs. Lee",
+        "parentMobile": "3344556677",
+        "marks": {
+          "Math": 85,
+          "English": 91,
+          "Science": 86,
+          "History": 79,
+          "Geography": 81
+        }
+      },
+      {
+        "id": 7,
+        "name": "James Davis",
+        "rollNo": "9A129",
+        "parentName": "Mr. Davis",
+        "parentMobile": "4455667788",
+        "marks": {
+          "Math": 91,
+          "English": 84,
+          "Science": 88,
+          "History": 79,
+          "Geography": 93
+        }
+      },
+      {
+        "id": 8,
+        "name": "Olivia Wilson",
+        "rollNo": "9A130",
+        "parentName": "Mrs. Wilson",
+        "parentMobile": "2233445566",
+        "marks": {
+          "Math": 79,
+          "English": 83,
+          "Science": 89,
+          "History": 85,
+          "Geography": 78
+        }
+      },
+      {
+        "id": 9,
+        "name": "Lucas Miller",
+        "rollNo": "9A131",
+        "parentName": "Mr. Miller",
+        "parentMobile": "5566773344",
+        "marks": {
+          "Math": 87,
+          "English": 92,
+          "Science": 79,
+          "History": 84,
+          "Geography": 90
+        }
+      },
+      {
+        "id": 10,
+        "name": "Mia Moore",
+        "rollNo": "9A132",
+        "parentName": "Mrs. Moore",
+        "parentMobile": "6677882211",
+        "marks": {
+          "Math": 80,
+          "English": 87,
+          "Science": 92,
+          "History": 77,
+          "Geography": 82
+        }
+      }
+    ],
+    "class10": [
+      {
+        "id": 1,
+        "name": "Alice Smith",
+        "rollNo": "10B456",
+        "parentName": "Robert Smith",
+        "parentMobile": "0987654321",
+        "marks": {
+          "Math": 95,
+          "English": 89,
+          "Science": 92,
+          "History": 85,
+          "Geography": 78
+        }
+      },
+      {
+        "id": 2,
+        "name": "Ethan Harris",
+        "rollNo": "10B457",
+        "parentName": "Mr. Harris",
+        "parentMobile": "1234567890",
+        "marks": {
+          "Math": 88,
+          "English": 85,
+          "Science": 91,
+          "History": 83,
+          "Geography": 76
+        }
+      },
+      {
+        "id": 3,
+        "name": "Isabella Clark",
+        "rollNo": "10B458",
+        "parentName": "Mrs. Clark",
+        "parentMobile": "1122334455",
+        "marks": {
+          "Math": 84,
+          "English": 90,
+          "Science": 85,
+          "History": 89,
+          "Geography": 80
+        }
+      },
+      {
+        "id": 4,
+        "name": "Mason Lewis",
+        "rollNo": "10B459",
+        "parentName": "Mr. Lewis",
+        "parentMobile": "2233445566",
+        "marks": {
+          "Math": 87,
+          "English": 92,
+          "Science": 80,
+          "History": 77,
+          "Geography": 91
+        }
+      },
+      {
+        "id": 5,
+        "name": "Charlotte Scott",
+        "rollNo": "10B460",
+        "parentName": "Mrs. Scott",
+        "parentMobile": "3344556677",
+        "marks": {
+          "Math": 82,
+          "English": 88,
+          "Science": 90,
+          "History": 76,
+          "Geography": 84
+        }
+      },
+      {
+        "id": 6,
+        "name": "Amelia Allen",
+        "rollNo": "10B461",
+        "parentName": "Mr. Allen",
+        "parentMobile": "4455667788",
+        "marks": {
+          "Math": 91,
+          "English": 93,
+          "Science": 89,
+          "History": 80,
+          "Geography": 78
+        }
+      },
+      {
+        "id": 7,
+        "name": "Benjamin Adams",
+        "rollNo": "10B462",
+        "parentName": "Mrs. Adams",
+        "parentMobile": "5566778899",
+        "marks": {
+          "Math": 89,
+          "English": 82,
+          "Science": 85,
+          "History": 77,
+          "Geography": 81
+        }
+      },
+      {
+        "id": 8,
+        "name": "Evelyn Nelson",
+        "rollNo": "10B463",
+        "parentName": "Mr. Nelson",
+        "parentMobile": "6677889900",
+        "marks": {
+          "Math": 79,
+          "English": 84,
+          "Science": 88,
+          "History": 85,
+          "Geography": 90
+        }
+      },
+      {
+        "id": 9,
+        "name": "Henry Walker",
+        "rollNo": "10B464",
+        "parentName": "Mrs. Walker",
+        "parentMobile": "7788990001",
+        "marks": {
+          "Math": 90,
+          "English": 92,
+          "Science": 80,
+          "History": 88,
+          "Geography": 93
+        }
+      },
+      {
+        "id": 10,
+        "name": "Lily Young",
+        "rollNo": "10B465",
+        "parentName": "Mr. Young",
+        "parentMobile": "8899001122",
+        "marks": {
+          "Math": 85,
+          "English": 87,
+          "Science": 79,
+          "History": 84,
+          "Geography": 76
+        }
+      }
+    ],
+    "class11": [
+      {
+        "id": 1,
+        "name": "Bob Johnson",
+        "rollNo": "11C789",
+        "parentName": "Sarah Johnson",
+        "parentMobile": "1122334455",
+        "marks": {
+          "Math": 78,
+          "English": 82,
+          "Science": 84,
+          "History": 88,
+          "Geography": 75
+        }
+      },
+      {
+        "id": 2,
+        "name": "Aiden Carter",
+        "rollNo": "11C790",
+        "parentName": "Mr. Carter",
+        "parentMobile": "2233445566",
+        "marks": {
+          "Math": 80,
+          "English": 85,
+          "Science": 92,
+          "History": 75,
+          "Geography": 81
+        }
+      },
+      {
+        "id": 3,
+        "name": "Chloe Mitchell",
+        "rollNo": "11C791",
+        "parentName": "Mrs. Mitchell",
+        "parentMobile": "3344556677",
+        "marks": {
+          "Math": 92,
+          "English": 86,
+          "Science": 85,
+          "History": 80,
+          "Geography": 89
+        }
+      },
+      {
+        "id": 4,
+        "name": "Jackson Perez",
+        "rollNo": "11C792",
+        "parentName": "Mr. Perez",
+        "parentMobile": "4455667788",
+        "marks": {
+          "Math": 75,
+          "English": 82,
+          "Science": 79,
+          "History": 85,
+          "Geography": 90
+        }
+      },
+      {
+        "id": 5,
+        "name": "Harper Evans",
+        "rollNo": "11C793",
+        "parentName": "Mrs. Evans",
+        "parentMobile": "5566778899",
+        "marks": {
+          "Math": 89,
+          "English": 91,
+          "Science": 83,
+          "History": 79,
+          "Geography": 92
+        }
+      },
+      {
+        "id": 6,
+        "name": "Sebastian Green",
+        "rollNo": "11C794",
+        "parentName": "Mr. Green",
+        "parentMobile": "6677889900",
+        "marks": {
+          "Math": 87,
+          "English": 80,
+          "Science": 94,
+          "History": 90,
+          "Geography": 77
+        }
+      },
+      {
+        "id": 7,
+        "name": "Zoey Hall",
+        "rollNo": "11C795",
+        "parentName": "Mrs. Hall",
+        "parentMobile": "7788990001",
+        "marks": {
+          "Math": 93,
+          "English": 79,
+          "Science": 82,
+          "History": 75,
+          "Geography": 83
+        }
+      },
+      {
+        "id": 8,
+        "name": "Daniel Gonzalez",
+        "rollNo": "11C796",
+        "parentName": "Mr. Gonzalez",
+        "parentMobile": "8899001122",
+        "marks": {
+          "Math": 88,
+          "English": 84,
+          "Science": 91,
+          "History": 92,
+          "Geography": 81
+        }
+      },
+      {
+        "id": 9,
+        "name": "Madeline Allen",
+        "rollNo": "11C797",
+        "parentName": "Mrs. Allen",
+        "parentMobile": "9900112233",
+        "marks": {
+          "Math": 80,
+          "English": 83,
+          "Science": 88,
+          "History": 84,
+          "Geography": 92
+        }
+      },
+      {
+        "id": 10,
+        "name": "Oliver Martinez",
+        "rollNo": "11C798",
+        "parentName": "Mr. Martinez",
+        "parentMobile": "0011223344",
+        "marks": {
+          "Math": 79,
+          "English": 89,
+          "Science": 77,
+          "History": 83,
+          "Geography": 80
+        }
+      }
+    ],
+  "class12": [
+    {
+      "id": 1,
+      "name": "Sophia Taylor",
+      "rollNo": "12D101",
+      "parentName": "Mr. Taylor",
+      "parentMobile": "1122334455",
+      "marks": {
+        "Math": 92,
+        "English": 89,
+        "Science": 90,
+        "History": 85,
+        "Geography": 78
+      }
+    },
+    {
+      "id": 2,
+      "name": "Liam King",
+      "rollNo": "12D102",
+      "parentName": "Mrs. King",
+      "parentMobile": "2233445566",
+      "marks": {
+        "Math": 88,
+        "English": 82,
+        "Science": 91,
+        "History": 80,
+        "Geography": 86
+      }
+    },
+    {
+      "id": 3,
+      "name": "Olivia Lee",
+      "rollNo": "12D103",
+      "parentName": "Mr. Lee",
+      "parentMobile": "3344556677",
+      "marks": {
+        "Math": 87,
+        "English": 92,
+        "Science": 86,
+        "History": 79,
+        "Geography": 91
+      }
+    },
+    {
+      "id": 4,
+      "name": "Ethan Harris",
+      "rollNo": "12D104",
+      "parentName": "Mrs. Harris",
+      "parentMobile": "4455667788",
+      "marks": {
+        "Math": 90,
+        "English": 88,
+        "Science": 84,
+        "History": 86,
+        "Geography": 80
+      }
+    },
+    {
+      "id": 5,
+      "name": "Chloe Davis",
+      "rollNo": "12D105",
+      "parentName": "Mr. Davis",
+      "parentMobile": "5566778899",
+      "marks": {
+        "Math": 89,
+        "English": 85,
+        "Science": 93,
+        "History": 82,
+        "Geography": 77
+      }
+    },
+    {
+      "id": 6,
+      "name": "Aiden Wilson",
+      "rollNo": "12D106",
+      "parentName": "Mrs. Wilson",
+      "parentMobile": "6677889900",
+      "marks": {
+        "Math": 85,
+        "English": 91,
+        "Science": 89,
+        "History": 79,
+        "Geography": 90
+      }
+    },
+    {
+      "id": 7,
+      "name": "Isabella Martinez",
+      "rollNo": "12D107",
+      "parentName": "Mr. Martinez",
+      "parentMobile": "7788990001",
+      "marks": {
+        "Math": 80,
+        "English": 84,
+        "Science": 92,
+        "History": 80,
+        "Geography": 81
+      }
+    },
+    {
+      "id": 8,
+      "name": "Mason Thompson",
+      "rollNo": "12D108",
+      "parentName": "Mrs. Thompson",
+      "parentMobile": "8899001122",
+      "marks": {
+        "Math": 91,
+        "English": 87,
+        "Science": 86,
+        "History": 85,
+        "Geography": 79
+      }
+    },
+    {
+      "id": 9,
+      "name": "Emma Robinson",
+      "rollNo": "12D109",
+      "parentName": "Mr. Robinson",
+      "parentMobile": "9900112233",
+      "marks": {
+        "Math": 94,
+        "English": 90,
+        "Science": 83,
+        "History": 88,
+        "Geography": 92
+      }
+    },
+    {
+      "id": 10,
+      "name": "James Clark",
+      "rollNo": "12D110",
+      "parentName": "Mrs. Clark",
+      "parentMobile": "0011223344",
+      "marks": {
+        "Math": 83,
+        "English": 82,
+        "Science": 85,
+        "History": 81,
+        "Geography": 90
+      }
+    }
+  ]  }
