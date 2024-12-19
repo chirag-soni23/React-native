@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native';
-import studentData from '@/studentData.json';
-
+import marksData from '@/marksData.json'; 
 interface Student {
   id: number;
   name: string;
   rollNo: string;
   parentName: string;
   parentMobile: string;
+  marks: {
+    Math: number;
+    English: number;
+    Science: number;
+    History: number;
+    Geography: number;
+  };
 }
 
 interface StudentData {
@@ -28,10 +34,12 @@ export default function TabTwoScreen() {
     setSelectedClass(null);
   };
 
-  const data = studentData as StudentData;
+  // Using the imported JSON data
+  const data = marksData as StudentData;
 
   return (
     <View style={styles.container}>
+      {/* Class cards display */}
       {!selectedClass && (
         <View style={styles.cardContainer}>
           {['class9', 'class10', 'class11', 'class12'].map((classKey) => (
@@ -46,6 +54,7 @@ export default function TabTwoScreen() {
         </View>
       )}
 
+      {/* Student details and marks */}
       {selectedClass && (
         <View style={styles.detailsContainer}>
           <TouchableOpacity onPress={handleBackPress} style={styles.backButton}>
@@ -60,6 +69,20 @@ export default function TabTwoScreen() {
                 <Text style={styles.studentInfo}>Roll No: {student.rollNo}</Text>
                 <Text style={styles.studentInfo}>Parent Name: {student.parentName}</Text>
                 <Text style={styles.studentInfo}>Parent's Mobile: {student.parentMobile}</Text>
+
+                {/* Display Marks in a Table Format */}
+                <View style={styles.marksTable}>
+                  <View style={styles.marksTableRow}>
+                    <Text style={styles.marksTableHeader}>Subject</Text>
+                    <Text style={styles.marksTableHeader}>Marks</Text>
+                  </View>
+                  {Object.keys(student.marks).map((subject) => (
+                    <View key={subject} style={styles.marksTableRow}>
+                      <Text style={styles.marksTableCell}>{subject}</Text>
+                      <Text style={styles.marksTableCell}>{student.marks[subject as keyof typeof student.marks]}</Text>
+                    </View>
+                  ))}
+                </View>
               </View>
             ))}
           </ScrollView>
@@ -147,5 +170,30 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     fontWeight: 'bold',
+  },
+  marksTable: {
+    marginTop: 15,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 8,
+    overflow: 'hidden',
+  },
+  marksTableRow: {
+    flexDirection: 'row',
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  marksTableHeader: {
+    flex: 1,
+    fontWeight: 'bold',
+    color: '#333',
+    fontSize: 16,
+  },
+  marksTableCell: {
+    flex: 1,
+    fontSize: 16,
+    color: '#333',
   },
 });
