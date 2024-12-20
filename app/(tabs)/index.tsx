@@ -43,7 +43,7 @@ export default function TabTwoScreen() {
 
       {!selectedClass && (
         <View style={styles.cardContainer}>
-          {['class9', 'class10', 'class11', 'class12'].map((classKey) => (
+          {['9th class', '10th class', '11th class', '12th class'].map((classKey) => (
             <TouchableOpacity
               key={classKey}
               style={styles.card}

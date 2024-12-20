@@ -1,5 +1,5 @@
 {
-    "class9": [
+    "9th class": [
       {
         "id": 1,
         "name": "John Doe",
@@ -141,7 +141,7 @@
         }
       }
     ],
-    "class10": [
+    "10th class": [
       {
         "id": 1,
         "name": "Alice Smith",
@@ -283,7 +283,7 @@
         }
       }
     ],
-    "class11": [
+    "11th class": [
       {
         "id": 1,
         "name": "Bob Johnson",
@@ -425,7 +425,7 @@
         }
       }
     ],
-  "class12": [
+  "12th class": [
     {
       "id": 1,
       "name": "Sophia Taylor",
