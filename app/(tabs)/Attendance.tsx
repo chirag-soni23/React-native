@@ -32,6 +32,8 @@ export default function TabTwoScreen() {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.heading}>Student Attendance Dashboard</Text>
+
       {!selectedClass && (
         <View style={styles.cardContainer}>
           {['class9', 'class10', 'class11', 'class12'].map((classKey) => (
@@ -75,19 +77,28 @@ const styles = StyleSheet.create({
     backgroundColor: '#f4f7fc',
     padding: 20,
   },
+  heading: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#6200ea',
+    textAlign: 'center',
+    marginBottom: 20,
+  },
   cardContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    flexWrap: 'wrap',
     marginTop: 20,
   },
   card: {
     backgroundColor: '#6200ea',
-    paddingVertical: 20,
-    paddingHorizontal: 30,
-    borderRadius: 12,
-    width: '22%',
+    paddingVertical: 30,
+    paddingHorizontal: 20,
+    borderRadius: 16,
+    width: '45%',
     alignItems: 'center',
     justifyContent: 'center',
+    marginVertical: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
@@ -95,7 +106,7 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   cardTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#fff',
     textTransform: 'uppercase',
@@ -116,6 +127,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 15,
     color: '#333',
+    textAlign: 'center',
   },
   scrollView: {
     maxHeight: 400,
@@ -123,7 +135,7 @@ const styles = StyleSheet.create({
   studentCard: {
     marginBottom: 20,
     padding: 15,
-    backgroundColor: '#f1f1f1',
+    backgroundColor: '#e3f2fd',
     borderRadius: 10,
     shadowColor: '#ccc',
     shadowOffset: { width: 0, height: 2 },
