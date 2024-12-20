@@ -29,14 +29,14 @@ export default function TabLayout() {
         }),
       }}>
       <Tabs.Screen
-        name="index"
+        name="Attendance"
         options={{
           title: 'Attendance',
           tabBarIcon: ({ color }) => <FaClipboardUser size={24} color='white'/>,
         }}
       />
       <Tabs.Screen
-        name="Attendance"
+        name="index"
         options={{
           title: 'Marks',
           tabBarIcon: ({ color }) => <FaRegListAlt size={24} color='white'/>,
