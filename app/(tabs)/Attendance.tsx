@@ -30,16 +30,18 @@ export default function TabTwoScreen() {
 
   const data = studentData as unknown as StudentData;
 
+  const cardColors = ['#FF7518', '#17ADAD', '#F4C636', '#007bff']; 
+
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Student Attendance Dashboard</Text>
 
       {!selectedClass && (
         <View style={styles.cardContainer}>
-          {['9th class', '10th class', '11th class', '12th class'].map((classKey) => (
+          {['9th class', '10th class', '11th class', '12th class'].map((classKey, index) => (
             <TouchableOpacity
               key={classKey}
-              style={styles.card}
+              style={[styles.card, { backgroundColor: cardColors[index % cardColors.length] }]}
               onPress={() => handleCardPress(classKey as keyof StudentData)}
             >
               <Text style={styles.cardTitle}>{classKey.toUpperCase()}</Text>
@@ -54,7 +56,7 @@ export default function TabTwoScreen() {
             <Text style={styles.backText}>Back</Text>
           </TouchableOpacity>
           <Text style={styles.detailsTitle}>{selectedClass.toUpperCase()} Students</Text>
-          
+
           <ScrollView style={styles.scrollContainer}>
             <View>
               <View style={styles.tableHeader}>
@@ -103,7 +105,6 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   card: {
-    backgroundColor: '#007bff',
     paddingVertical: 35,
     paddingHorizontal: 25,
     borderRadius: 16,
@@ -117,7 +118,6 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 8,
     borderWidth: 1,
-    borderColor: '#007bff',
   },
   cardTitle: {
     fontSize: 22,
