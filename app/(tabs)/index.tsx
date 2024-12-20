@@ -103,11 +103,15 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 30,
     fontWeight: '700',
-    color: '#333',
+    color: '#fff',
     textAlign: 'center',
     marginBottom: 20,
     textTransform: 'uppercase',
     letterSpacing: 1.5,
+    backgroundColor: '#2c2c54', // Midnight Muse color
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    borderRadius: 10,
   },
   cardContainer: {
     flexDirection: 'row',
