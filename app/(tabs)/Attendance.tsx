@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native';
-import marksData from '@/marksData.json';
+import studentData from '@/studentData.json';
 
 interface Student {
   id: number;
@@ -8,13 +8,6 @@ interface Student {
   rollNo: string;
   parentName: string;
   parentMobile: string;
-  marks: {
-    Math: number;
-    English: number;
-    Science: number;
-    History: number;
-    Geography: number;
-  };
 }
 
 interface StudentData {
@@ -35,12 +28,10 @@ export default function TabTwoScreen() {
     setSelectedClass(null);
   };
 
-  const data = marksData as StudentData;
+  const data = studentData as StudentData;
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Student Attendance Dashboard</Text>
-
       {!selectedClass && (
         <View style={styles.cardContainer}>
           {['class9', 'class10', 'class11', 'class12'].map((classKey) => (
@@ -69,21 +60,6 @@ export default function TabTwoScreen() {
                 <Text style={styles.studentInfo}>Roll No: {student.rollNo}</Text>
                 <Text style={styles.studentInfo}>Parent Name: {student.parentName}</Text>
                 <Text style={styles.studentInfo}>Parent's Mobile: {student.parentMobile}</Text>
-
-                <View style={styles.marksTable}>
-                  <View style={styles.marksTableRow}>
-                    <Text style={styles.marksTableHeader}>Subject</Text>
-                    <Text style={styles.marksTableHeader}>Marks</Text>
-                  </View>
-                  {Object.keys(student.marks).map((subject) => (
-                    <View key={subject} style={styles.marksTableRow}>
-                      <Text style={styles.marksTableCell}>{subject}</Text>
-                      <Text style={styles.marksTableCell}>
-                        {student.marks[subject as keyof typeof student.marks]}
-                      </Text>
-                    </View>
-                  ))}
-                </View>
               </View>
             ))}
           </ScrollView>
@@ -96,31 +72,22 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f7f9fc',
+    backgroundColor: '#f4f7fc',
     padding: 20,
-  },
-  heading: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#6200ea',
-    textAlign: 'center',
-    marginBottom: 20,
   },
   cardContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    flexWrap: 'wrap',
     marginTop: 20,
   },
   card: {
-    backgroundColor: '#4caf50',
-    paddingVertical: 30,
-    paddingHorizontal: 20,
-    borderRadius: 16,
-    width: '45%',
+    backgroundColor: '#6200ea',
+    paddingVertical: 20,
+    paddingHorizontal: 30,
+    borderRadius: 12,
+    width: '22%',
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
@@ -128,7 +95,7 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   cardTitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#fff',
     textTransform: 'uppercase',
@@ -149,7 +116,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 15,
     color: '#333',
-    textAlign: 'center',
   },
   scrollView: {
     maxHeight: 400,
@@ -157,7 +123,7 @@ const styles = StyleSheet.create({
   studentCard: {
     marginBottom: 20,
     padding: 15,
-    backgroundColor: '#e8f5e9',
+    backgroundColor: '#f1f1f1',
     borderRadius: 10,
     shadowColor: '#ccc',
     shadowOffset: { width: 0, height: 2 },
@@ -172,7 +138,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     marginBottom: 15,
-    backgroundColor: '#ff5722',
+    backgroundColor: '#ff4081',
     paddingVertical: 12,
     borderRadius: 8,
   },
@@ -181,30 +147,5 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     fontWeight: 'bold',
-  },
-  marksTable: {
-    marginTop: 15,
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 8,
-    overflow: 'hidden',
-  },
-  marksTableRow: {
-    flexDirection: 'row',
-    paddingVertical: 10,
-    paddingHorizontal: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
-  },
-  marksTableHeader: {
-    flex: 1,
-    fontWeight: 'bold',
-    color: '#333',
-    fontSize: 16,
-  },
-  marksTableCell: {
-    flex: 1,
-    fontSize: 16,
-    color: '#333',
   },
 });
