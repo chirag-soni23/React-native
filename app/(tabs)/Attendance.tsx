@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native';
-import marksData from '@/marksData.json'; 
+import marksData from '@/marksData.json';
+
 interface Student {
   id: number;
   name: string;
@@ -34,12 +35,12 @@ export default function TabTwoScreen() {
     setSelectedClass(null);
   };
 
-  // Using the imported JSON data
   const data = marksData as StudentData;
 
   return (
     <View style={styles.container}>
-      {/* Class cards display */}
+      <Text style={styles.heading}>Student Attendance Dashboard</Text>
+
       {!selectedClass && (
         <View style={styles.cardContainer}>
           {['class9', 'class10', 'class11', 'class12'].map((classKey) => (
@@ -54,7 +55,6 @@ export default function TabTwoScreen() {
         </View>
       )}
 
-      {/* Student details and marks */}
       {selectedClass && (
         <View style={styles.detailsContainer}>
           <TouchableOpacity onPress={handleBackPress} style={styles.backButton}>
@@ -70,7 +70,6 @@ export default function TabTwoScreen() {
                 <Text style={styles.studentInfo}>Parent Name: {student.parentName}</Text>
                 <Text style={styles.studentInfo}>Parent's Mobile: {student.parentMobile}</Text>
 
-                {/* Display Marks in a Table Format */}
                 <View style={styles.marksTable}>
                   <View style={styles.marksTableRow}>
                     <Text style={styles.marksTableHeader}>Subject</Text>
@@ -79,7 +78,9 @@ export default function TabTwoScreen() {
                   {Object.keys(student.marks).map((subject) => (
                     <View key={subject} style={styles.marksTableRow}>
                       <Text style={styles.marksTableCell}>{subject}</Text>
-                      <Text style={styles.marksTableCell}>{student.marks[subject as keyof typeof student.marks]}</Text>
+                      <Text style={styles.marksTableCell}>
+                        {student.marks[subject as keyof typeof student.marks]}
+                      </Text>
                     </View>
                   ))}
                 </View>
@@ -95,22 +96,31 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f4f7fc',
+    backgroundColor: '#f7f9fc',
     padding: 20,
+  },
+  heading: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#6200ea',
+    textAlign: 'center',
+    marginBottom: 20,
   },
   cardContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    flexWrap: 'wrap',
     marginTop: 20,
   },
   card: {
-    backgroundColor: '#6200ea',
-    paddingVertical: 20,
-    paddingHorizontal: 30,
-    borderRadius: 12,
-    width: '22%',
+    backgroundColor: '#4caf50',
+    paddingVertical: 30,
+    paddingHorizontal: 20,
+    borderRadius: 16,
+    width: '45%',
     alignItems: 'center',
     justifyContent: 'center',
+    marginVertical: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
@@ -118,7 +128,7 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   cardTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#fff',
     textTransform: 'uppercase',
@@ -139,6 +149,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 15,
     color: '#333',
+    textAlign: 'center',
   },
   scrollView: {
     maxHeight: 400,
@@ -146,7 +157,7 @@ const styles = StyleSheet.create({
   studentCard: {
     marginBottom: 20,
     padding: 15,
-    backgroundColor: '#f1f1f1',
+    backgroundColor: '#e8f5e9',
     borderRadius: 10,
     shadowColor: '#ccc',
     shadowOffset: { width: 0, height: 2 },
@@ -161,7 +172,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     marginBottom: 15,
-    backgroundColor: '#ff4081',
+    backgroundColor: '#ff5722',
     paddingVertical: 12,
     borderRadius: 8,
   },
