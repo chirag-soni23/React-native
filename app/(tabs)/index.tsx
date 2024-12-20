@@ -35,7 +35,7 @@ export default function TabTwoScreen() {
     setSelectedClass(null);
   };
 
-  const data = marksData as StudentData;
+  const data = marksData as unknown as StudentData;
 
   return (
     <View style={styles.container}>
