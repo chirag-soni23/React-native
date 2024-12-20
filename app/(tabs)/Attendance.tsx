@@ -54,16 +54,26 @@ export default function TabTwoScreen() {
             <Text style={styles.backText}>Back</Text>
           </TouchableOpacity>
           <Text style={styles.detailsTitle}>{selectedClass.toUpperCase()} Students</Text>
-          <ScrollView style={styles.scrollView}>
-            {data[selectedClass]?.map((student: Student) => (
-              <View key={student.id} style={styles.studentCard}>
-                <Text style={styles.studentInfo}>ID: {student.id}</Text>
-                <Text style={styles.studentInfo}>Name: {student.name}</Text>
-                <Text style={styles.studentInfo}>Roll No: {student.rollNo}</Text>
-                <Text style={styles.studentInfo}>Parent Name: {student.parentName}</Text>
-                <Text style={styles.studentInfo}>Parent's Mobile: {student.parentMobile}</Text>
+          
+          <ScrollView style={styles.scrollContainer}>
+            <View>
+              <View style={styles.tableHeader}>
+                <Text style={[styles.tableCell, styles.tableHeaderCell]}>ID</Text>
+                <Text style={[styles.tableCell, styles.tableHeaderCell]}>Name</Text>
+                <Text style={[styles.tableCell, styles.tableHeaderCell]}>Roll No</Text>
+                <Text style={[styles.tableCell, styles.tableHeaderCell]}>Parent Name</Text>
+                <Text style={[styles.tableCell, styles.tableHeaderCell]}>Parent's Mobile</Text>
               </View>
-            ))}
+              {data[selectedClass]?.map((student: Student) => (
+                <View key={student.id} style={styles.tableRow}>
+                  <Text style={styles.tableCell}>{student.id}</Text>
+                  <Text style={styles.tableCell}>{student.name}</Text>
+                  <Text style={styles.tableCell}>{student.rollNo}</Text>
+                  <Text style={styles.tableCell}>{student.parentName}</Text>
+                  <Text style={styles.tableCell}>{student.parentMobile}</Text>
+                </View>
+              ))}
+            </View>
           </ScrollView>
         </View>
       )}
@@ -127,6 +137,7 @@ const styles = StyleSheet.create({
     elevation: 10,
     borderWidth: 1,
     borderColor: '#ddd',
+    flex: 1,
   },
   detailsTitle: {
     fontSize: 26,
@@ -136,25 +147,35 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     letterSpacing: 1,
   },
-  scrollView: {
-    maxHeight: 400,
+  scrollContainer: {
+    marginTop: 10,
+    maxHeight: 400, // Control vertical scrolling height
   },
-  studentCard: {
-    marginBottom: 20,
-    padding: 20,
+  tableHeader: {
+    flexDirection: 'row',
+    backgroundColor: '#007bff',
+    paddingVertical: 15,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+  },
+  tableRow: {
+    flexDirection: 'row',
     backgroundColor: '#f1f3f8',
-    borderRadius: 12,
-    shadowColor: '#ccc',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 6,
-    elevation: 4,
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
   },
-  studentInfo: {
+  tableCell: {
+    flex: 1,
+    paddingHorizontal: 10,
+    textAlign: 'center',
     fontSize: 16,
-    color: '#333',
-    marginBottom: 8,
     fontWeight: '500',
+    color: '#333',
+  },
+  tableHeaderCell: {
+    color: '#fff',
+    fontWeight: '700',
   },
   backButton: {
     marginBottom: 20,
