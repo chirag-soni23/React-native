@@ -92,12 +92,12 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 30,
     fontWeight: '700',
-    color: '#fff', // White text color
+    color: '#fff', 
     textAlign: 'center',
     marginBottom: 20,
     textTransform: 'uppercase',
     letterSpacing: 1.5,
-    backgroundColor: '#232F54', // Midnight Muse background color
+    backgroundColor: '#232F54',
     paddingVertical: 15,
   },
   cardContainer: {
