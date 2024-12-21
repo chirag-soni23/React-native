@@ -34,8 +34,7 @@ export default function TabTwoScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Student Attendance Dashboard</Text>
-
+    <Text style={styles.heading}>Student Attendance Dashboard</Text>
       {!selectedClass && (
         <View style={styles.cardContainer}>
           {['9th class', '10th class', '11th class', '12th class'].map((classKey, index) => (
@@ -92,14 +91,17 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 30,
     fontWeight: '700',
-    color: '#fff', 
+    color: '#fff',
     textAlign: 'center',
     marginBottom: 20,
     textTransform: 'uppercase',
     letterSpacing: 1.5,
     backgroundColor: '#232F54',
     paddingVertical: 15,
+    marginHorizontal: -20, 
+    marginTop:-20
   },
+
   cardContainer: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
@@ -119,7 +121,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 6,
     elevation: 8,
-    borderWidth: 1,
   },
   cardTitle: {
     fontSize: 22,

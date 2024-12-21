@@ -108,10 +108,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     textTransform: 'uppercase',
     letterSpacing: 1.5,
-    backgroundColor: '#2c2c54', // Midnight Muse color
+    backgroundColor: '#2c2c54', 
     paddingVertical: 15,
     paddingHorizontal: 20,
-    borderRadius: 10,
+    marginHorizontal: -20, 
+    marginTop:-20
   },
   cardContainer: {
     flexDirection: 'row',
@@ -132,7 +133,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 6,
     elevation: 8,
-    borderWidth: 1,
   },
   cardTitle: {
     fontSize: 22,
