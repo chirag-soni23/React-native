@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     marginTop: 10,
-    maxHeight: 400, // Control vertical scrolling height
+    maxHeight: 400, 
   },
   tableHeader: {
     flexDirection: 'row',
