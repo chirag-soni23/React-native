@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   heading: {
-    fontSize: 30,
+    fontSize: 20,
     fontWeight: '700',
     color: '#fff',
     textAlign: 'center',
