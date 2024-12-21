@@ -190,8 +190,8 @@ const styles = StyleSheet.create({
   backButton: {
     marginBottom: 20,
     backgroundColor: '#ff4081',
-    paddingVertical: 12,
-    paddingHorizontal: 30,
+    paddingVertical: 5,
+    paddingHorizontal: 20,
     borderRadius: 25,
     alignSelf: 'flex-start',
   },
