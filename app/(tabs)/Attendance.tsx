@@ -65,14 +65,14 @@ export default function TabTwoScreen() {
       )}
 
       {selectedClass && (
-        <View>
+        <View style={styles.selectedClassContainer}>
           <TouchableOpacity onPress={handleBackPress} style={styles.backButton}>
             <Text style={styles.backText}>Back</Text>
           </TouchableOpacity>
           <Text style={styles.detailsTitle}>{selectedClass.toUpperCase()} Students</Text>
 
           <ScrollView style={styles.scrollContainer}>
-            <View>
+            <View style={styles.tableContainer}>
               <View style={styles.tableHeader}>
                 <Text style={[styles.tableCell, styles.tableHeaderCell]}>Select</Text>
                 <Text style={[styles.tableCell, styles.tableHeaderCell]}>Roll No</Text>
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     textTransform: 'uppercase',
   },
-  
+
   detailsTitle: {
     fontSize: 26,
     fontWeight: '600',
@@ -153,9 +153,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     letterSpacing: 1,
   },
+  selectedClassContainer: {
+    flex: 1,
+  },
   scrollContainer: {
+    flex: 1,
     marginTop: 10,
-    maxHeight: 600, // Increased height
+  },
+  tableContainer: {
+    flex: 1,
   },
   tableHeader: {
     flexDirection: 'row',
@@ -202,4 +208,3 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
 });
-
