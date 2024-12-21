@@ -73,19 +73,23 @@ export default function TabTwoScreen() {
 
           <ScrollView style={styles.scrollContainer}>
             <View style={styles.tableContainer}>
+              {/* Table Header */}
               <View style={styles.tableHeader}>
-                <Text style={[styles.tableCell, styles.tableHeaderCell]}>Select</Text>
+                <Text style={[styles.tableCell, styles.tableHeaderCell, { flex: 1 }]}>Select</Text>
                 <Text style={[styles.tableCell, styles.tableHeaderCell]}>Roll No</Text>
                 <Text style={[styles.tableCell, styles.tableHeaderCell]}>Name</Text>
                 <Text style={[styles.tableCell, styles.tableHeaderCell]}>Parent Name</Text>
               </View>
+              {/* Table Rows */}
               {data[selectedClass]?.map((student: Student) => (
                 <View key={student.id} style={styles.tableRow}>
-                  <CheckBox
-                    style={styles.checkbox}
-                    onClick={() => handleCheckboxChange(student.id)}
-                    isChecked={selectedStudents.has(student.id)}
-                  />
+                  <View style={[styles.tableCell, { flex: 1 }]}>
+                    <CheckBox
+                      style={styles.checkbox}
+                      onClick={() => handleCheckboxChange(student.id)}
+                      isChecked={selectedStudents.has(student.id)}
+                    />
+                  </View>
                   <Text style={styles.tableCell}>{student.rollNo}</Text>
                   <Text style={styles.tableCell}>{student.name}</Text>
                   <Text style={styles.tableCell}>{student.parentName}</Text>
@@ -144,7 +148,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     textTransform: 'uppercase',
   },
-
   detailsTitle: {
     fontSize: 26,
     fontWeight: '600',
@@ -179,7 +182,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   tableCell: {
-    flex: 1,
+    flex: 2,
     paddingHorizontal: 10,
     textAlign: 'center',
     fontSize: 16,
@@ -191,7 +194,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   checkbox: {
-    marginRight: 10,
+    marginLeft: 15,
   },
   backButton: {
     marginBottom: 20,
