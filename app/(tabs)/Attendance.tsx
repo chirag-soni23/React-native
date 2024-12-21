@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, ScrollView,  } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import CheckBox from 'react-native-check-box';
 import studentData from '@/studentData.json';
 
 interface Student {
@@ -32,9 +33,19 @@ export default function TabTwoScreen() {
 
   const data = studentData as unknown as StudentData;
 
-  
+  const handleCheckboxChange = (studentId: number) => {
+    setSelectedStudents((prevSelected) => {
+      const newSelected = new Set(prevSelected);
+      if (newSelected.has(studentId)) {
+        newSelected.delete(studentId);
+      } else {
+        newSelected.add(studentId);
+      }
+      return newSelected;
+    });
+  };
 
-  const cardColors = ['#FF7518', '#17ADAD', '#F4C636', '#007bff']; 
+  const cardColors = ['#FF7518', '#17ADAD', '#F4C636', '#007bff'];
 
   return (
     <View style={styles.container}>
@@ -70,7 +81,11 @@ export default function TabTwoScreen() {
               </View>
               {data[selectedClass]?.map((student: Student) => (
                 <View key={student.id} style={styles.tableRow}>
-                 
+                  <CheckBox
+                    style={styles.checkbox}
+                    onClick={() => handleCheckboxChange(student.id)}
+                    isChecked={selectedStudents.has(student.id)}
+                  />
                   <Text style={styles.tableCell}>{student.rollNo}</Text>
                   <Text style={styles.tableCell}>{student.name}</Text>
                   <Text style={styles.tableCell}>{student.parentName}</Text>
