@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView,  } from 'react-native';
 import studentData from '@/studentData.json';
 
 interface Student {
@@ -19,6 +19,7 @@ interface StudentData {
 
 export default function TabTwoScreen() {
   const [selectedClass, setSelectedClass] = useState<keyof StudentData | null>(null);
+  const [selectedStudents, setSelectedStudents] = useState<Set<number>>(new Set());
 
   const handleCardPress = (classKey: keyof StudentData) => {
     setSelectedClass(classKey);
@@ -26,15 +27,18 @@ export default function TabTwoScreen() {
 
   const handleBackPress = () => {
     setSelectedClass(null);
+    setSelectedStudents(new Set());
   };
 
   const data = studentData as unknown as StudentData;
+
+  
 
   const cardColors = ['#FF7518', '#17ADAD', '#F4C636', '#007bff']; 
 
   return (
     <View style={styles.container}>
-    <Text style={styles.heading}>Student Attendance Dashboard</Text>
+      <Text style={styles.heading}>Student Attendance Dashboard</Text>
       {!selectedClass && (
         <View style={styles.cardContainer}>
           {['9th class', '10th class', '11th class', '12th class'].map((classKey, index) => (
@@ -59,19 +63,17 @@ export default function TabTwoScreen() {
           <ScrollView style={styles.scrollContainer}>
             <View>
               <View style={styles.tableHeader}>
-                <Text style={[styles.tableCell, styles.tableHeaderCell]}>ID</Text>
-                <Text style={[styles.tableCell, styles.tableHeaderCell]}>Name</Text>
+                <Text style={[styles.tableCell, styles.tableHeaderCell]}>Select</Text>
                 <Text style={[styles.tableCell, styles.tableHeaderCell]}>Roll No</Text>
+                <Text style={[styles.tableCell, styles.tableHeaderCell]}>Name</Text>
                 <Text style={[styles.tableCell, styles.tableHeaderCell]}>Parent Name</Text>
-                <Text style={[styles.tableCell, styles.tableHeaderCell]}>Parent's Mobile</Text>
               </View>
               {data[selectedClass]?.map((student: Student) => (
                 <View key={student.id} style={styles.tableRow}>
-                  <Text style={styles.tableCell}>{student.id}</Text>
-                  <Text style={styles.tableCell}>{student.name}</Text>
+                 
                   <Text style={styles.tableCell}>{student.rollNo}</Text>
+                  <Text style={styles.tableCell}>{student.name}</Text>
                   <Text style={styles.tableCell}>{student.parentName}</Text>
-                  <Text style={styles.tableCell}>{student.parentMobile}</Text>
                 </View>
               ))}
             </View>
@@ -98,10 +100,9 @@ const styles = StyleSheet.create({
     letterSpacing: 1.5,
     backgroundColor: '#232F54',
     paddingVertical: 15,
-    marginHorizontal: -20, 
-    marginTop:-20
+    marginHorizontal: -20,
+    marginTop: -20,
   },
-
   cardContainer: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
@@ -167,6 +168,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
+    alignItems: 'center',
   },
   tableCell: {
     flex: 1,
@@ -179,6 +181,9 @@ const styles = StyleSheet.create({
   tableHeaderCell: {
     color: '#fff',
     fontWeight: '700',
+  },
+  checkbox: {
+    marginRight: 10,
   },
   backButton: {
     marginBottom: 20,

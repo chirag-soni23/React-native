@@ -26,6 +26,7 @@ interface StudentData {
 
 export default function TabTwoScreen() {
   const [selectedClass, setSelectedClass] = useState<keyof StudentData | null>(null);
+  const [selectedStudentId, setSelectedStudentId] = useState<number | null>(null);
 
   const handleCardPress = (classKey: keyof StudentData) => {
     setSelectedClass(classKey);
@@ -35,9 +36,17 @@ export default function TabTwoScreen() {
     setSelectedClass(null);
   };
 
-  const data = marksData as unknown as StudentData;
+  const handleViewMarks = (studentId: number) => {
+    setSelectedStudentId(studentId);
+  };
 
-  const cardColors = ['#FF7518', '#17ADAD', '#F4C636', '#007bff']; 
+  const handleBackToList = () => {
+    setSelectedStudentId(null);
+  };
+
+  const data = marksData as unknown as StudentData;
+  const cardColors = ['#FF7518', '#17ADAD', '#F4C636', '#007bff'];
+
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Student Marks Dashboard</Text>
@@ -47,7 +56,7 @@ export default function TabTwoScreen() {
           {['9th class', '10th class', '11th class', '12th class'].map((classKey, index) => (
             <TouchableOpacity
               key={classKey}
-              style={[styles.card, { backgroundColor: cardColors[index % cardColors.length] }]} // Apply dynamic color
+              style={[styles.card, { backgroundColor: cardColors[index % cardColors.length] }]} 
               onPress={() => handleCardPress(classKey as keyof StudentData)}
             >
               <Text style={styles.cardTitle}>{classKey.toUpperCase()}</Text>
@@ -56,37 +65,73 @@ export default function TabTwoScreen() {
         </View>
       )}
 
-      {selectedClass && (
+      {selectedClass && !selectedStudentId && (
         <View style={styles.detailsContainer}>
           <TouchableOpacity onPress={handleBackPress} style={styles.backButton}>
             <Text style={styles.backText}>Back</Text>
           </TouchableOpacity>
-          <Text style={styles.detailsTitle}>{selectedClass.toUpperCase()} Students</Text>
+          <Text style={styles.detailsTitle}>{selectedClass?.toUpperCase()} Students</Text>
           <ScrollView style={styles.scrollView}>
-            {data[selectedClass]?.map((student: Student) => (
-              <View key={student.id} style={styles.studentCard}>
-                <Text style={styles.studentInfo}>ID: {student.id}</Text>
-                <Text style={styles.studentInfo}>Name: {student.name}</Text>
-                <Text style={styles.studentInfo}>Roll No: {student.rollNo}</Text>
-                <Text style={styles.studentInfo}>Parent Name: {student.parentName}</Text>
-                <Text style={styles.studentInfo}>Parent's Mobile: {student.parentMobile}</Text>
-
-                <View style={styles.marksTable}>
-                  <View style={styles.marksTableRow}>
-                    <Text style={styles.marksTableHeader}>Subject</Text>
-                    <Text style={styles.marksTableHeader}>Marks</Text>
-                  </View>
-                  {Object.keys(student.marks).map((subject) => (
-                    <View key={subject} style={styles.marksTableRow}>
-                      <Text style={styles.marksTableCell}>{subject}</Text>
-                      <Text style={styles.marksTableCell}>
-                        {student.marks[subject as keyof typeof student.marks]}
-                      </Text>
-                    </View>
-                  ))}
-                </View>
+            <View style={styles.studentTable}>
+              <View style={styles.studentTableRow}>
+                <Text style={styles.studentTableHeader}>ID</Text>
+                <Text style={styles.studentTableHeader}>Name</Text>
+                <Text style={styles.studentTableHeader}>Action</Text>
               </View>
-            ))}
+              {/* Ensure selectedClass is defined before using it as a key */}
+              {selectedClass && data[selectedClass]?.map((student: Student) => (
+                <View key={student.id} style={styles.studentTableRow}>
+                  <Text style={styles.studentTableCell}>{student.id}</Text>
+                  <Text style={styles.studentTableCell}>{student.name}</Text>
+                  <TouchableOpacity 
+                    onPress={() => handleViewMarks(student.id)} 
+                    style={styles.viewButton}
+                  >
+                    <Text style={styles.viewButtonText}>View</Text>
+                  </TouchableOpacity>
+                </View>
+              ))}
+            </View>
+          </ScrollView>
+        </View>
+      )}
+
+      {selectedStudentId && (
+        <View style={styles.detailsContainer}>
+          <TouchableOpacity onPress={handleBackToList} style={styles.backButton}>
+            <Text style={styles.backText}>Back to List</Text>
+          </TouchableOpacity>
+          <Text style={styles.detailsTitle}>Student Marks</Text>
+          <ScrollView style={styles.scrollView}>
+            {selectedClass && data[selectedClass]?.map((student: Student) => {
+              if (student.id === selectedStudentId) {
+                return (
+                  <View key={student.id} style={styles.studentCard}>
+                    <Text style={styles.studentInfo}>ID: {student.id}</Text>
+                    <Text style={styles.studentInfo}>Name: {student.name}</Text>
+                    <Text style={styles.studentInfo}>Roll No: {student.rollNo}</Text>
+                    <Text style={styles.studentInfo}>Parent Name: {student.parentName}</Text>
+                    <Text style={styles.studentInfo}>Parent's Mobile: {student.parentMobile}</Text>
+
+                    <View style={styles.marksTable}>
+                      <View style={styles.marksTableRow}>
+                        <Text style={styles.marksTableHeader}>Subject</Text>
+                        <Text style={styles.marksTableHeader}>Marks</Text>
+                      </View>
+                      {Object.keys(student.marks).map((subject) => (
+                        <View key={subject} style={styles.marksTableRow}>
+                          <Text style={styles.marksTableCell}>{subject}</Text>
+                          <Text style={styles.marksTableCell}>
+                            {student.marks[subject as keyof typeof student.marks]}
+                          </Text>
+                        </View>
+                      ))}
+                    </View>
+                  </View>
+                );
+              }
+              return null;
+            })}
           </ScrollView>
         </View>
       )}
@@ -164,6 +209,55 @@ const styles = StyleSheet.create({
   scrollView: {
     maxHeight: 400,
   },
+  studentTable: {
+    marginTop: 15,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 8,
+    overflow: 'hidden',
+  },
+  studentTableRow: {
+    flexDirection: 'row',
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  studentTableHeader: {
+    flex: 1,
+    fontWeight: 'bold',
+    color: '#333',
+    fontSize: 16,
+  },
+  studentTableCell: {
+    flex: 1,
+    fontSize: 16,
+    color: '#333',
+  },
+  viewButton: {
+    backgroundColor: '#ff4081',
+    paddingVertical: 6,
+    paddingHorizontal: 10,
+    borderRadius: 8,
+  },
+  viewButtonText: {
+    color: '#fff',
+    fontWeight: '600',
+  },
+  backButton: {
+    marginBottom: 20,
+    backgroundColor: '#ff4081',
+    paddingVertical: 12,
+    paddingHorizontal: 30,
+    borderRadius: 25,
+    alignSelf: 'flex-start',
+  },
+  backText: {
+    fontSize: 18,
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: '700',
+  },
   studentCard: {
     marginBottom: 20,
     padding: 20,
@@ -180,20 +274,6 @@ const styles = StyleSheet.create({
     color: '#333',
     marginBottom: 8,
     fontWeight: '500',
-  },
-  backButton: {
-    marginBottom: 20,
-    backgroundColor: '#ff4081',
-    paddingVertical: 12,
-    paddingHorizontal: 30,
-    borderRadius: 25,
-    alignSelf: 'flex-start',
-  },
-  backText: {
-    fontSize: 18,
-    color: '#fff',
-    textAlign: 'center',
-    fontWeight: '700',
   },
   marksTable: {
     marginTop: 15,
