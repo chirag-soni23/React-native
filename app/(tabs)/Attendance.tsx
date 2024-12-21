@@ -65,7 +65,7 @@ export default function TabTwoScreen() {
       )}
 
       {selectedClass && (
-        <View style={styles.detailsContainer}>
+        <View>
           <TouchableOpacity onPress={handleBackPress} style={styles.backButton}>
             <Text style={styles.backText}>Back</Text>
           </TouchableOpacity>
@@ -144,20 +144,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     textTransform: 'uppercase',
   },
-  detailsContainer: {
-    marginTop: 20,
-    padding: 30,
-    backgroundColor: '#fff',
-    borderRadius: 15,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 10,
-    borderWidth: 1,
-    borderColor: '#ddd',
-    flex: 1,
-  },
+  
   detailsTitle: {
     fontSize: 26,
     fontWeight: '600',
