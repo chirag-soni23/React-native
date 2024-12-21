@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f7f8fa',
-    padding: 20,
+    padding: 7,
   },
   heading: {
     fontSize: 20,
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#232F54',
     paddingVertical: 15,
     marginHorizontal: -20,
-    marginTop: -20,
+    marginTop: -10,
   },
   cardContainer: {
     flexDirection: 'row',
