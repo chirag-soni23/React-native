@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  Alert,
+  Linking,
+} from 'react-native';
 import CheckBox from 'react-native-check-box';
 import studentData from '@/studentData.json';
 
@@ -40,9 +48,39 @@ export default function TabTwoScreen() {
         newSelected.delete(studentId);
       } else {
         newSelected.add(studentId);
+        const selectedStudent = data[selectedClass!]?.find((student) => student.id === studentId);
+        if (selectedStudent) {
+          Alert.alert(
+            'Share Details',
+            `Do you want to share ${selectedStudent.name}'s details on WhatsApp?`,
+            [
+              {
+                text: 'Cancel',
+                style: 'cancel',
+              },
+              {
+                text: 'Share',
+                onPress: () => shareOnWhatsApp(selectedStudent),
+              },
+            ]
+          );
+        }
       }
       return newSelected;
     });
+  };
+
+  const shareOnWhatsApp = (student: Student) => {
+    const message = `Student Details:
+Name: ${student.name}
+Roll No: ${student.rollNo}
+Parent Name: ${student.parentName}
+Parent Mobile: ${student.parentMobile}`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `whatsapp://send?text=${encodedMessage}`;
+    Linking.openURL(whatsappUrl).catch((err) =>
+      Alert.alert('Error', 'WhatsApp is not installed on your device')
+    );
   };
 
   const cardColors = ['#FF7518', '#17ADAD', '#F4C636', '#007bff'];
@@ -110,7 +148,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   heading: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: '700',
     color: '#fff',
     textAlign: 'center',
