@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     marginTop: 10,
-    maxHeight: 400, 
+    maxHeight: 600, // Increased height
   },
   tableHeader: {
     flexDirection: 'row',
@@ -202,3 +202,4 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
 });
+
