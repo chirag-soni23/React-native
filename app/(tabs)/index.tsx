@@ -210,8 +210,8 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   scrollViewContainer: {
-    flexGrow: 1, // Ensures ScrollView can scroll as needed
-    paddingBottom: 20, // Adds padding for the scroll area
+    flexGrow: 1, 
+    paddingBottom: 20,
   },
   studentTable: {
     marginTop: 15,
@@ -285,7 +285,7 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
     borderRadius: 8,
     overflow: 'hidden',
-    maxHeight: 300, // Adjust max height as needed
+    maxHeight: 300, 
   },
   marksTableRow: {
     flexDirection: 'row',
