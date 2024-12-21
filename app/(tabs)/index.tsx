@@ -71,7 +71,9 @@ export default function TabTwoScreen() {
             <Text style={styles.backText}>Back</Text>
           </TouchableOpacity>
           <Text style={styles.detailsTitle}>{selectedClass?.toUpperCase()} Students</Text>
-          <ScrollView style={styles.scrollView}>
+          
+          {/* ScrollView for full table */}
+          <ScrollView contentContainerStyle={styles.scrollViewContainer}>
             <View style={styles.studentTable}>
               <View style={styles.studentTableRow}>
                 <Text style={styles.studentTableHeader}>ID</Text>
@@ -101,7 +103,9 @@ export default function TabTwoScreen() {
             <Text style={styles.backText}>Back to List</Text>
           </TouchableOpacity>
           <Text style={styles.detailsTitle}>Student Marks</Text>
-          <ScrollView style={styles.scrollView}>
+
+          {/* ScrollView for student details */}
+          <ScrollView contentContainerStyle={styles.scrollViewContainer}>
             {selectedClass && data[selectedClass]?.map((student: Student) => {
               if (student.id === selectedStudentId) {
                 return (
@@ -205,8 +209,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     letterSpacing: 1,
   },
-  scrollView: {
-    maxHeight: 400,
+  scrollViewContainer: {
+    flexGrow: 1, // Ensures ScrollView can scroll as needed
+    paddingBottom: 20, // Adds padding for the scroll area
   },
   studentTable: {
     marginTop: 15,
@@ -214,7 +219,6 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
     borderRadius: 8,
     overflow: 'hidden',
-    maxHeight: 300, // Adjust max height as needed
   },
   studentTableRow: {
     flexDirection: 'row',
@@ -302,4 +306,3 @@ const styles = StyleSheet.create({
     color: '#333',
   },
 });
-
