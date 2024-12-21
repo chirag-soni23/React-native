@@ -66,7 +66,7 @@ export default function TabTwoScreen() {
       )}
 
       {selectedClass && !selectedStudentId && (
-        <View style={styles.detailsContainer}>
+        <View>
           <TouchableOpacity onPress={handleBackPress} style={styles.backButton}>
             <Text style={styles.backText}>Back</Text>
           </TouchableOpacity>
@@ -78,7 +78,6 @@ export default function TabTwoScreen() {
                 <Text style={styles.studentTableHeader}>Name</Text>
                 <Text style={styles.studentTableHeader}>Action</Text>
               </View>
-              {/* Ensure selectedClass is defined before using it as a key */}
               {selectedClass && data[selectedClass]?.map((student: Student) => (
                 <View key={student.id} style={styles.studentTableRow}>
                   <Text style={styles.studentTableCell}>{student.id}</Text>
@@ -97,7 +96,7 @@ export default function TabTwoScreen() {
       )}
 
       {selectedStudentId && (
-        <View style={styles.detailsContainer}>
+        <View>
           <TouchableOpacity onPress={handleBackToList} style={styles.backButton}>
             <Text style={styles.backText}>Back to List</Text>
           </TouchableOpacity>
@@ -157,7 +156,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 20,
     marginHorizontal: -20, 
-    marginTop:-20
+    marginTop: -20,
   },
   cardContainer: {
     flexDirection: 'row',
@@ -186,17 +185,17 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   detailsContainer: {
-    // marginTop: 20,
-    // padding: 30,
-    // backgroundColor: '#fff',
-    // borderRadius: 15,
-    // shadowColor: '#000',
-    // shadowOffset: { width: 0, height: 4 },
-    // shadowOpacity: 0.1,
-    // shadowRadius: 8,
-    // elevation: 10,
-    // borderWidth: 1,
-    // borderColor: '#ddd',
+    marginTop: 20,
+    padding: 30,
+    backgroundColor: '#fff',
+    borderRadius: 15,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 10,
+    borderWidth: 1,
+    borderColor: '#ddd',
   },
   detailsTitle: {
     fontSize: 26,
@@ -215,6 +214,7 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
     borderRadius: 8,
     overflow: 'hidden',
+    maxHeight: 300, // Adjust max height as needed
   },
   studentTableRow: {
     flexDirection: 'row',
@@ -281,6 +281,7 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
     borderRadius: 8,
     overflow: 'hidden',
+    maxHeight: 300, // Adjust max height as needed
   },
   marksTableRow: {
     flexDirection: 'row',
@@ -301,3 +302,4 @@ const styles = StyleSheet.create({
     color: '#333',
   },
 });
+
